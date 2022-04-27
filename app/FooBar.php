@@ -10,7 +10,7 @@ class FooBar
             'Qix' => 7
         ];
 
-    public function checkNumber(int $number): string
+    public function checkNumberModifier(int $number): string
     {
 $output="";
         foreach($this->values as $key=>$value){
@@ -26,6 +26,12 @@ if(empty($output)){
     return $number;
 }
 return $output;
-
     }
+
+
+public function checkEveryNumber(int $number):string{
+        return "";
+}
+
+
 }
