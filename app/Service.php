@@ -18,9 +18,7 @@ $output="";
                     $output.=$key;
             }
         }
-if(empty($output)){
-    return $number;
-}
+
 return $output;
     }
 
@@ -38,7 +36,8 @@ public function checkEveryNumber(int $number):string{
         return $output;
         }
 public function checkModifierAndEveryNumber($number):string{
-        return "";
+
+  return $this->checkNumberModifier($number).$this->checkEveryNumber($number);
 }
 
 

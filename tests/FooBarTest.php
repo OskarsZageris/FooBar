@@ -33,14 +33,7 @@ class ServiceTest extends TestCase
         $this->assertSame('FooBar', $fooBar->checkNumberModifier(300));
     }
 
-    public function testCheckNumberModifierShouldReturnNumber()
-    {
-        $number = new Service();
-        $this->assertSame('4', $number->checkNumberModifier(4));
-        $this->assertSame('8', $number->checkNumberModifier(8));
-        $this->assertSame('22', $number->checkNumberModifier(22));
-        $this->assertSame('667', $number->checkNumberModifier(667));
-    }
+
 
     public function testCheckNumberModifierShouldReturnQix()
     {
@@ -114,32 +107,31 @@ class ServiceTest extends TestCase
     {
         $number = new Service();
         $this->assertSame('FooFoo', $number->checkModifierAndEveryNumber(3));
-        $this->assertSame('FooFooFooFoo', $number->checkModifierAndEveryNumber(33));
-        $this->assertSame('FooFooFoo', $number->checkModifierAndEveryNumber(36));
-        $this->assertSame('FooFoo', $number->checkModifierAndEveryNumber(63));
-        $this->assertSame('Foo', $number->checkModifierAndEveryNumber(27));
+        $this->assertSame('FooFooFoo', $number->checkModifierAndEveryNumber(33));
+        $this->assertSame('FooFoo', $number->checkModifierAndEveryNumber(36));
+        $this->assertSame('FooFooFoo', $number->checkModifierAndEveryNumber(33));
     }
     public function testCheckModifierAndEveryNumberShouldReturnBar()
     {
         $number = new Service();
         $this->assertSame('BarBar', $number->checkModifierAndEveryNumber(5));
-        $this->assertSame('BarBarBarBar', $number->checkModifierAndEveryNumber(55));
-        $this->assertSame('Bar', $number->checkModifierAndEveryNumber(51));
+        $this->assertSame('BarBarBar', $number->checkModifierAndEveryNumber(55));
+        $this->assertSame('Bar', $number->checkModifierAndEveryNumber(521));
     }
     public function testCheckModifierAndEveryNumberShouldReturnQix()
     {
         $number = new Service();
         $this->assertSame('QixQix', $number->checkModifierAndEveryNumber(7));
-        $this->assertSame('QixQixQixQix', $number->checkModifierAndEveryNumber(77));
+        $this->assertSame('QixQixQix', $number->checkModifierAndEveryNumber(77));
         $this->assertSame('Qix', $number->checkModifierAndEveryNumber(71));
     }
     public function testCheckModifierAndEveryNumberShouldReturnFooBarQix()
     {
         $number = new Service();
-        $this->assertSame('FooBarFooBar', $number->checkModifierAndEveryNumber(35));
-        $this->assertSame('BarQix', $number->checkModifierAndEveryNumber(57));
-        $this->assertSame('FooBarQixQixFoo', $number->checkModifierAndEveryNumber(75));
-        $this->assertSame('FooBarQixQixFoo', $number->checkModifierAndEveryNumber(350));
+        $this->assertSame('BarQixFooBar', $number->checkModifierAndEveryNumber(35));
+        $this->assertSame('FooBarQix', $number->checkModifierAndEveryNumber(57));
+        $this->assertSame('FooBarQixBar', $number->checkModifierAndEveryNumber(75));
+        $this->assertSame('BarQixFooBar', $number->checkModifierAndEveryNumber(350));
         $this->assertSame('BarQixBar', $number->checkModifierAndEveryNumber(715));
     }
 
