@@ -27,10 +27,10 @@ class FooBarTest extends TestCase
     public function testCheckNumberShouldReturnFooBar()
     {
         $fooBar = new FooBar();
-        $this->assertSame('FooBar', $fooBar->checkNumber(15));
-        $this->assertSame('FooBar', $fooBar->checkNumber(60));
-        $this->assertSame('FooBar', $fooBar->checkNumber(120));
-        $this->assertSame('FooBar', $fooBar->checkNumber(300));
+        $this->assertSame('Foo, Bar', $fooBar->checkNumber(15));
+        $this->assertSame('Foo, Bar', $fooBar->checkNumber(60));
+        $this->assertSame('Foo, Bar', $fooBar->checkNumber(120));
+        $this->assertSame('Foo, Bar', $fooBar->checkNumber(300));
     }
 
     public function testCheckNumberShouldReturnNumber()
@@ -55,27 +55,27 @@ class FooBarTest extends TestCase
     public function testCheckNumberShouldReturnFooQix()
     {
         $number = new FooBar();
-        $this->assertSame('FooQix', $number->checkNumber(21));
-        $this->assertSame('FooQix', $number->checkNumber(42));
-        $this->assertSame('FooQix', $number->checkNumber(63));
-        $this->assertSame('FooQix', $number->checkNumber(126));
+        $this->assertSame('Foo, Qix', $number->checkNumber(21));
+        $this->assertSame('Foo, Qix', $number->checkNumber(42));
+        $this->assertSame('Foo, Qix', $number->checkNumber(63));
+        $this->assertSame('Foo, Qix', $number->checkNumber(126));
     }
 
     public function testCheckNumberShouldReturnBarQix()
     {
         $number = new FooBar();
-        $this->assertSame('BarQix', $number->checkNumber(35));
-        $this->assertSame('BarQix', $number->checkNumber(70));
-        $this->assertSame('BarQix', $number->checkNumber(140));
-        $this->assertSame('BarQix', $number->checkNumber(280));
+        $this->assertSame('Bar, Qix', $number->checkNumber(35));
+        $this->assertSame('Bar, Qix', $number->checkNumber(70));
+        $this->assertSame('Bar, Qix', $number->checkNumber(140));
+        $this->assertSame('Bar, Qix', $number->checkNumber(280));
     }
     public function testCheckNumberShouldReturnFooBarQix()
     {
         $number = new FooBar();
-        $this->assertSame('FooBarQix', $number->checkNumber(105));
-        $this->assertSame('FooBarQix', $number->checkNumber(210));
-        $this->assertSame('FooBarQix', $number->checkNumber(525));
-        $this->assertSame('FooBarQix', $number->checkNumber(735));
+        $this->assertSame('Foo, Bar, Qix', $number->checkNumber(105));
+        $this->assertSame('Foo, Bar, Qix', $number->checkNumber(210));
+        $this->assertSame('Foo, Bar, Qix', $number->checkNumber(525));
+        $this->assertSame('Foo, Bar, Qix', $number->checkNumber(735));
     }
 
 
