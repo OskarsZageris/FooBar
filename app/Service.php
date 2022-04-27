@@ -2,7 +2,7 @@
 
 namespace App;
 
-class FooBar
+class Service
 {
       private array  $values = [
             'Foo' => 3,
@@ -15,11 +15,7 @@ class FooBar
 $output="";
         foreach($this->values as $key=>$value){
             if($number%$value==0){
-                if($output==""){
-                $output.=$key;
-                }else{
-                    $output.=", ".$key;
-                }
+                    $output.=$key;
             }
         }
 if(empty($output)){
@@ -41,7 +37,9 @@ public function checkEveryNumber(int $number):string{
             }
         return $output;
         }
-
+public function checkModifierAndEveryNumber($number):string{
+        return "";
+}
 
 
 }
