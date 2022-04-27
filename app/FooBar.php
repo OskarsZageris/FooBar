@@ -30,8 +30,18 @@ return $output;
 
 
 public function checkEveryNumber(int $number):string{
-        return "";
-}
+        $numbers=str_split($number,1);
+    $output="";
+        foreach($numbers as $number){
+            foreach($this->values as $key=>$value) {
+                if($value==$number){
+                    $output.=$key;
+                }
+            }
+            }
+        return $output;
+        }
+
 
 
 }

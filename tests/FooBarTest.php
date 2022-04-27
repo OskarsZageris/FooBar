@@ -95,9 +95,9 @@ class FooBarTest extends TestCase
     public function testCheckEveryNumberShouldReturnQix(){
         $number = new FooBar();
         $this->assertSame('Qix', $number->checkEveryNumber(7));
-        $this->assertSame('QixQix', $number->checkEveryNumber(7517));
+        $this->assertSame('QixQix', $number->checkEveryNumber(7417));
         $this->assertSame('QixQixQix', $number->checkEveryNumber(777));
-        $this->assertSame('QixQixQixQix', $number->checkEveryNumber(879476757));
+        $this->assertSame('QixQixQixQix', $number->checkEveryNumber(879476747));
     }
     public function testCheckEveryNumberShouldReturnFooBarQix(){
         $number = new FooBar();
