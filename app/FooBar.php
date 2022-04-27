@@ -4,23 +4,24 @@ namespace App;
 
 class FooBar
 {
+      private array  $values = [
+            'Foo' => 3,
+            'Bar' => 5,
+            'Qix' => 7
+        ];
 
     public function checkNumber(int $number): string
     {
-        $numberFoo = 3;
-        $outputFoo = 'Foo';
-        $numberBar = 5;
-        $outputBar = 'Bar';
-
-        if ($number % $numberBar === 0 && $number % $numberFoo === 0) {
-            $result = $outputFoo . $outputBar;
-        } elseif ($number % $numberBar === 0) {
-            $result = $outputBar;
-        } elseif ($number % $numberFoo === 0) {
-            $result = $outputFoo;
-        } else {
-            $result = $number;
+$output="";
+        foreach($this->values as $key=>$value){
+            if($number%$value==0){
+                $output.=$key;
+            }
         }
-        return $result;
+if(empty($output)){
+    return $number;
+}
+return $output;
+
     }
 }

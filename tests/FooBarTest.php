@@ -21,7 +21,7 @@ class FooBarTest extends TestCase
         $this->assertSame('Bar', $bar->checkNumber(5));
         $this->assertSame('Bar', $bar->checkNumber(10));
         $this->assertSame('Bar', $bar->checkNumber(50));
-        $this->assertSame('Bar', $bar->checkNumber(70));
+        $this->assertSame('Bar', $bar->checkNumber(80));
     }
 
     public function testCheckNumberShouldReturnFooBar()
