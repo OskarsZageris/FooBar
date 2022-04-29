@@ -6,6 +6,7 @@ class Service
 {
     private array $values = [];
     private string $separator = "";
+    private string $symbol = "";
 
     public function checkNumberModifier(int $number): string
     {
@@ -51,7 +52,14 @@ class Service
     }
 
     public function sumNumbersAndCheckModifier($number):string{
-        return "";
+        $sum = array_sum(str_split($number, 1));
+        $symbol=$this->symbol;
+        $divider= $this->values["$symbol"];
+if($sum%$divider==0){
+    return $this->checkModifierAndNumberOccurrences($number).$symbol;
+}else{
+    return $this->checkModifierAndNumberOccurrences($number);
+}
     }
 
     public function setValues(array $values): void
@@ -63,4 +71,10 @@ class Service
     {
         $this->separator = $separator;
     }
+
+    public function setSymbol(string $symbol): void
+    {
+        $this->symbol = $symbol;
+    }
+
 }

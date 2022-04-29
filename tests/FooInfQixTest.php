@@ -160,7 +160,7 @@ class FooInfQixTest extends TestCase
     {
         $number = new FooInfQix();
         $this->assertSame('Inf; InfInf', $number->sumNumbersAndCheckModifier(8));
-        $this->assertSame('Qix; Foo; FooInf', $number->sumNumbersAndCheckModifier(35));
+        $this->assertSame('Qix; FooInf', $number->sumNumbersAndCheckModifier(35));
         $this->assertSame('Inf; Inf; InfInf', $number->sumNumbersAndCheckModifier(88));
     }
 

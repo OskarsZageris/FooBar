@@ -17,6 +17,8 @@ class FooInfQix extends Service
             'Qix' => $qix,
             'Foo' => $foo
         ]);
+        //set symbol to add at the end if divides with symbol value and returns complete number;
+        $this->setsymbol("Inf");
     }
 
 
