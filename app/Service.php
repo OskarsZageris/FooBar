@@ -5,14 +5,22 @@ namespace App;
 class Service
 {
     private array $values = [];
+    private string $separator="";
 
     public function checkNumberModifier(int $number): string
     {
         $output = "";
         foreach ($this->values as $key => $value) {
             if ($number % $value == 0) {
-                $output .= $key;
+                if($output==""){
+                    $output.=$key;
+                }else{
+                    $output.=$this->separator.$key;
+                }
+
             }
+
+
         }
         return $output;
     }
@@ -25,7 +33,13 @@ class Service
         foreach ($numbers as $number) {
             foreach ($this->values as $key => $value) {
                 if ($value == $number) {
-                    $output .= $key;
+                    if($output==""){
+                        $output.=$key;
+                    }else{
+                        $output.=$this->separator.$key;
+                    }
+
+
                 }
             }
         }
@@ -34,7 +48,11 @@ class Service
 
     public function checkModifierAndNumberOccurrences($number): string
     {
+        if(empty($this->checkNumberModifier($number))){
         return $this->checkNumberModifier($number) . $this->checkNumberOccurrences($number);
+        }else{
+            return $this->checkNumberModifier($number) .$this->separator. $this->checkNumberOccurrences($number);
+        }
     }
 
 
@@ -43,4 +61,8 @@ class Service
         $this->values = $values;
     }
 
+    public function setSeparator(string $separator): void
+    {
+        $this->separator = $separator;
+    }
 }

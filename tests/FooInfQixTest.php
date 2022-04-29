@@ -37,7 +37,7 @@ class FooInfQixTest extends TestCase
         $number = new FooInfQix();
         $this->assertSame('Inf; Qix', $number->checkNumberModifier(56));
         $this->assertSame('Inf; Qix', $number->checkNumberModifier(112));
-        $this->assertSame('Inf; Qix', $number->checkNumberModifier(168));
+        $this->assertSame('Inf; Qix', $number->checkNumberModifier(224));
 
     }
 
@@ -66,37 +66,37 @@ class FooInfQixTest extends TestCase
 
     }
 
-    public function testCheckEveryNumberShouldReturnFoo()
+    public function testCheckNumberOccurrencesShouldReturnFoo()
     {
         $number = new FooInfQix();
         $this->assertSame('Foo', $number->checkNumberOccurrences(3));
         $this->assertSame('Foo; Foo', $number->checkNumberOccurrences(1313));
         $this->assertSame('Foo; Foo; Foo', $number->checkNumberOccurrences(333));
-        $this->assertSame('Foo; Foo; Foo; Foo', $number->checkNumberOccurrences(88366333));
+        $this->assertSame('Foo; Foo; Foo; Foo', $number->checkNumberOccurrences(366333));
     }
 
-    public function testCheckEveryNumberShouldReturnInf()
+    public function testCheckNumberOccurrencesShouldReturnInf()
     {
         $number = new FooInfQix();
         $this->assertSame('Inf', $number->checkNumberOccurrences(8));
         $this->assertSame('Inf; Inf', $number->checkNumberOccurrences(1818));
         $this->assertSame('Inf; Inf; Inf', $number->checkNumberOccurrences(484848));
     }
-    public function testCheckEveryNumberShouldReturnQix()
+    public function testCheckNumberOccurrencesShouldReturnQix()
     {
         $number = new FooInfQix();
         $this->assertSame('Qix', $number->checkNumberOccurrences(7));
         $this->assertSame('Qix; Qix', $number->checkNumberOccurrences(1717));
         $this->assertSame('Qix; Qix; Qix', $number->checkNumberOccurrences(4777));
     }
-    public function testCheckEveryNumberShouldReturnFooInfQix()
+    public function testCheckNumberOccurrencesShouldReturnFooInfQix()
     {
         $number = new FooInfQix();
         $this->assertSame('Foo; Inf; Qix', $number->checkNumberOccurrences(387));
         $this->assertSame('Qix; Inf; Foo', $number->checkNumberOccurrences(76863));
         $this->assertSame('Foo; Qix', $number->checkNumberOccurrences(37));
         $this->assertSame('Foo; Inf', $number->checkNumberOccurrences(38));
-        $this->assertSame('Inf; Qix', $number->checkNumberOccurrences(78));
+        $this->assertSame('Inf; Qix', $number->checkNumberOccurrences(87));
     }
 
     public function testCheckModifierAndNumberOccurrencesShouldReturnFoo()
@@ -127,7 +127,7 @@ class FooInfQixTest extends TestCase
     public function testCheckModifierAndNumberOccurrencesShouldReturnInfQix()
     {
         $number = new FooInfQix();
-        $this->assertSame('Inf; Qix; Inf', $number->checkModifierAndNumberOccurrences(168));
+        $this->assertSame('Inf; Qix; Foo; Inf', $number->checkModifierAndNumberOccurrences(168));
         $this->assertSame('Inf; Qix; Inf', $number->checkModifierAndNumberOccurrences(280));
     }
     public function testCheckModifierAndNumberOccurrencesShouldReturnQixFoo()
