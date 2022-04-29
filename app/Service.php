@@ -5,22 +5,19 @@ namespace App;
 class Service
 {
     private array $values = [];
-    private string $separator="";
+    private string $separator = "";
 
     public function checkNumberModifier(int $number): string
     {
         $output = "";
         foreach ($this->values as $key => $value) {
             if ($number % $value == 0) {
-                if($output==""){
-                    $output.=$key;
-                }else{
-                    $output.=$this->separator.$key;
+                if ($output == "") {
+                    $output .= $key;
+                } else {
+                    $output .= $this->separator . $key;
                 }
-
             }
-
-
         }
         return $output;
     }
@@ -33,13 +30,11 @@ class Service
         foreach ($numbers as $number) {
             foreach ($this->values as $key => $value) {
                 if ($value == $number) {
-                    if($output==""){
-                        $output.=$key;
-                    }else{
-                        $output.=$this->separator.$key;
+                    if ($output == "") {
+                        $output .= $key;
+                    } else {
+                        $output .= $this->separator . $key;
                     }
-
-
                 }
             }
         }
@@ -48,13 +43,16 @@ class Service
 
     public function checkModifierAndNumberOccurrences($number): string
     {
-        if(empty($this->checkNumberModifier($number))){
-        return $this->checkNumberModifier($number) . $this->checkNumberOccurrences($number);
-        }else{
-            return $this->checkNumberModifier($number) .$this->separator. $this->checkNumberOccurrences($number);
+        if (empty($this->checkNumberModifier($number))) {
+            return $this->checkNumberModifier($number) . $this->checkNumberOccurrences($number);
+        } else {
+            return $this->checkNumberModifier($number) . $this->separator . $this->checkNumberOccurrences($number);
         }
     }
 
+    public function sumNumbersAndCheckModifier($number):string{
+        return "";
+    }
 
     public function setValues(array $values): void
     {

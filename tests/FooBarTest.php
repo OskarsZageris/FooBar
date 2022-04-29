@@ -1,4 +1,5 @@
 <?php
+
 namespace Tests;
 
 
@@ -35,7 +36,6 @@ class ServiceTest extends TestCase
     }
 
 
-
     public function testCheckNumberModifierShouldReturnQix()
     {
         $number = new FooBarQix();
@@ -63,6 +63,7 @@ class ServiceTest extends TestCase
         $this->assertSame('BarQix', $number->checkNumberModifier(140));
         $this->assertSame('BarQix', $number->checkNumberModifier(280));
     }
+
     public function testCheckNumberModifierShouldReturnFooBarQix()
     {
         $number = new FooBarQix();
@@ -72,28 +73,35 @@ class ServiceTest extends TestCase
         $this->assertSame('FooBarQix', $number->checkNumberModifier(735));
     }
 
-    public function testCheckEveryNumberShouldReturnFoo(){
+    public function testCheckEveryNumberShouldReturnFoo()
+    {
         $number = new FooBarQix();
         $this->assertSame('Foo', $number->checkNumberOccurrences(3));
         $this->assertSame('FooFoo', $number->checkNumberOccurrences(1313));
         $this->assertSame('FooFooFoo', $number->checkNumberOccurrences(333));
         $this->assertSame('FooFooFooFoo', $number->checkNumberOccurrences(88366333));
     }
-    public function testCheckEveryNumberShouldReturnBar(){
+
+    public function testCheckEveryNumberShouldReturnBar()
+    {
         $number = new FooBarQix();
         $this->assertSame('Bar', $number->checkNumberOccurrences(5));
         $this->assertSame('BarBar', $number->checkNumberOccurrences(1515));
         $this->assertSame('BarBarBar', $number->checkNumberOccurrences(555));
         $this->assertSame('BarBarBarBar', $number->checkNumberOccurrences(889556655));
     }
-    public function testCheckEveryNumberShouldReturnQix(){
+
+    public function testCheckEveryNumberShouldReturnQix()
+    {
         $number = new FooBarQix();
         $this->assertSame('Qix', $number->checkNumberOccurrences(7));
         $this->assertSame('QixQix', $number->checkNumberOccurrences(7417));
         $this->assertSame('QixQixQix', $number->checkNumberOccurrences(777));
         $this->assertSame('QixQixQixQix', $number->checkNumberOccurrences(879476747));
     }
-    public function testCheckEveryNumberShouldReturnFooBarQix(){
+
+    public function testCheckEveryNumberShouldReturnFooBarQix()
+    {
         $number = new FooBarQix();
         $this->assertSame('FooBar', $number->checkNumberOccurrences(35));
         $this->assertSame('QixQixFoo', $number->checkNumberOccurrences(7723));
@@ -112,6 +120,7 @@ class ServiceTest extends TestCase
         $this->assertSame('FooFoo', $number->checkModifierAndNumberOccurrences(36));
         $this->assertSame('FooFooFoo', $number->checkModifierAndNumberOccurrences(33));
     }
+
     public function testCheckModifierAndNumberOccurrencesShouldReturnBar()
     {
         $number = new FooBarQix();
@@ -119,6 +128,7 @@ class ServiceTest extends TestCase
         $this->assertSame('BarBarBar', $number->checkModifierAndNumberOccurrences(55));
         $this->assertSame('Bar', $number->checkModifierAndNumberOccurrences(521));
     }
+
     public function testCheckModifierAndNumberOccurrencesShouldReturnQix()
     {
         $number = new FooBarQix();
@@ -126,6 +136,7 @@ class ServiceTest extends TestCase
         $this->assertSame('QixQixQix', $number->checkModifierAndNumberOccurrences(77));
         $this->assertSame('Qix', $number->checkModifierAndNumberOccurrences(71));
     }
+
     public function testCheckModifierAndNumberOccurrencesShouldReturnFooBarQix()
     {
         $number = new FooBarQix();
