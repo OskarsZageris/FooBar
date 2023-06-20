@@ -6,13 +6,17 @@ use App\Service;
 
 class FooBarQix extends Service
 {
-    public function __construct($foo = 3, $bar = 5, $qix = 7)
+    public const FOO_VALUE = 3;
+    public const BAR_VALUE = 5;
+    public const QIX_VALUE = 7;
+
+
+    public function __construct()
     {
-        //set order
         $this->setValues([
-            'Foo' => $foo,
-            'Bar' => $bar,
-            'Qix' => $qix
+            'Foo' => self::FOO_VALUE,
+            'Bar' => self::BAR_VALUE,
+            'Qix' => self::QIX_VALUE
         ]);
     }
 }

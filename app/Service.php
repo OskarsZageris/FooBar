@@ -8,58 +8,66 @@ class Service
     private string $separator = "";
     private string $symbol = "";
 
+
     public function checkNumberModifier(int $number): string
     {
-        $output = "";
+        $output = [];
         foreach ($this->values as $key => $value) {
             if ($number % $value == 0) {
-                if ($output == "") {
-                    $output .= $key;
-                } else {
-                    $output .= $this->separator . $key;
-                }
+                $output[] = $key;
             }
         }
-        return $output;
+
+        return implode($this->separator, $output);
     }
 
 
     public function checkNumberOccurrences(int $number): string
     {
-        $numbers = str_split($number, 1);
-        $output = "";
-        foreach ($numbers as $number) {
+        $digits = str_split($number);
+        $output = [];
+
+        foreach ($digits as $digit) {
             foreach ($this->values as $key => $value) {
-                if ($value == $number) {
-                    if ($output == "") {
-                        $output .= $key;
-                    } else {
-                        $output .= $this->separator . $key;
-                    }
+                if ($value == $digit) {
+                    $output[] = $key;
                 }
             }
         }
-        return $output;
+        return implode($this->separator, $output);
     }
 
     public function checkModifierAndNumberOccurrences($number): string
     {
-        if (empty($this->checkNumberModifier($number))) {
-            return $this->checkNumberModifier($number) . $this->checkNumberOccurrences($number);
+        $modifier = $this->checkNumberModifier($number);
+        $occurrences = $this->checkNumberOccurrences($number);
+
+        if (empty($modifier)) {
+            return $modifier . $occurrences;
         } else {
-            return $this->checkNumberModifier($number) . $this->separator . $this->checkNumberOccurrences($number);
+            return $modifier . $this->separator . $occurrences;
         }
     }
 
-    public function sumNumbersAndCheckModifier($number):string{
-        $sum = array_sum(str_split($number, 1));
-        $symbol=$this->symbol;
-        $divider= $this->values["$symbol"];
-if($sum%$divider==0){
-    return $this->checkModifierAndNumberOccurrences($number).$symbol;
-}else{
-    return $this->checkModifierAndNumberOccurrences($number);
-}
+    public function sumNumbersAndCheckModifier($number): string
+    {
+        $digits = str_split($number);
+        $sum = array_sum($digits);
+
+        if (!array_key_exists($this->symbol, $this->values)) {
+            // Handle the error, if symbol is invalid:
+            throw new \InvalidArgumentException('Symbol is not a key in values array.');
+        }
+
+        $divider = $this->values[$this->symbol];
+
+        $result = $this->checkModifierAndNumberOccurrences($number);
+
+        if ($sum % $divider == 0) {
+            $result .= $this->symbol;
+        }
+
+        return $result;
     }
 
     public function setValues(array $values): void

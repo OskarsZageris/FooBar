@@ -7,19 +7,21 @@ use App\Service;
 
 class FooInfQix extends Service
 {
-    public function __construct($inf = 8, $qix = 7, $foo = 3, $separator = "; ")
+    public const FOO_VALUE = 3;
+    public const QIX_VALUE = 5;
+    public const INF_VALUE = 7;
+    public const SEPARATOR = "; ";
+    //set symbol to add at the end if divides with symbol value and returns complete number;
+    public const SYMBOL= "Inf";
+
+    public function __construct()
     {
-        //set separator
-        $this->setSeparator($separator);
-        //set order
+        $this->setSeparator(self::SEPARATOR);
         $this->setValues([
-            'Inf' => $inf,
-            'Qix' => $qix,
-            'Foo' => $foo
+            'Inf' => self::INF_VALUE,
+            'Qix' => self::QIX_VALUE,
+            'Foo' => self::FOO_VALUE
         ]);
-        //set symbol to add at the end if divides with symbol value and returns complete number;
-        $this->setsymbol("Inf");
+        $this->setSymbol(self::SYMBOL);
     }
-
-
 }
